@@ -1,4 +1,4 @@
-love.window.setMode(800, 600, {resizable = true})
+--love.window.setMode(800, 600, {resizable = true})
 
 local fov = require ('fov')
 

@@ -60,14 +60,11 @@ local module =
   end,
   stop = function (self)
     love.graphics.pop()
-    local shader = love.graphics.getShader()
-    local r, g, b, a = love.graphics.getColor()
+    love.graphics.push("all")
     love.graphics.setColor(self.r, self.g, self.b, self.a)
     love.graphics.rectangle ("fill", self.x1, self.y1, self.w1, self.h1)
     love.graphics.rectangle ("fill", self.x2, self.y2, self.w2, self.h2)
-
-    love.graphics.setColor (r, g, b, a)
-    love.graphics.setShader (shader)
+    love.graphics.pop()
   end
 }
 

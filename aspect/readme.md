@@ -2,4 +2,4 @@
 
 ## Install
 
-  ВАВ
+`local aspect = require("aspect")`

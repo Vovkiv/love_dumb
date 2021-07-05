@@ -1,1 +1,3 @@
-Yet 
+##Yet another aspect scaling library
+
+#

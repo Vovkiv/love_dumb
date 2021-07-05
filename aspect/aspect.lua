@@ -1,14 +1,16 @@
+local background = false
+local gameWidth, gameHeight = 800, 600
 local r, g, b, a = 0, 0, 0, 1
+
 local x1, y1, w1, h1, x2, y2, w2, h2
 local windowWidth, windowHeight
-local gameWidth, gameHeight = 800, 600
 local xoff, yoff
 local gameAspect, windowAspect
 local scale
 local loveWidth, loveHeight = love.graphics.getWidth, love.graphics.getHeight
 local abs = math.abs
 local a_
-local lovePop, lovePush, loveTranslate, loveScale, loveColor, loveRectangle = love.graphics.pop, love.graphics.push, love.graphics.translate, love.graphics.scale, love.graphics.setColor, love.graphics.rectangle
+local lovePop, lovePush, loveTranslate, loveScale, loveColor, loveRectangle, loveBackground = love.graphics.pop, love.graphics.push, love.graphics.translate, love.graphics.scale, love.graphics.setColor, love.graphics.rectangle, love.graphics.getBackgroundColor
 
 local module =
 {
@@ -27,6 +29,8 @@ local module =
   getWindowHeight = function() return windowHeight end,
   getWindowAspect = function() return windowAspect end,
   getGameAspect = function() return gameAspect end,
+  isBackground = function(bool) background = bool end,
+  getBackground = function() return background end,
   update = function()
     windowWidth, windowHeight = loveWidth(), loveHeight()
     gameAspect = gameWidth / gameHeight
@@ -58,7 +62,8 @@ local module =
   stop = function ()
     lovePop()
     lovePush("all")
-    loveColor(r, g, b, a)
+    if not background then loveColor(r, g, b, a)
+    else loveColor(loveBackground()) end
     loveRectangle("fill", x1, y1, w1, h1)
     loveRectangle("fill", x2, y2, w2, h2)
     lovePop()

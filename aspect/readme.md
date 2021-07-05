@@ -11,8 +11,7 @@ Can handle best fit scaling for games, with specific resolution
 `setColor(r, g, b, a)` - set colors of "black" bars; arguments `r` - red - number, `g` - green - number, `b` - blue - number, `a` - alpha - number; default - 0, 0, 0, 1
 
 `getColor()`           - get colors of "black" bars; return `red` - number, `green` - number, `blue` - number, `alpha` - number
-
-
+#
 `setGame(w, h)`        - set size of game, which library should scale to; arguments `w` - width - number, `h` - height - number
 
 `getGame()`            - get game width and size; return `width` - number, `height` - number

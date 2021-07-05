@@ -8,7 +8,6 @@ Can handle best fit scaling for games, with specific resolution
 
 ## Example
 ```
-{
 local aspect = require("aspect")
 
 aspect.setGame(800, 600)
@@ -32,7 +31,6 @@ function love.keypressed(key)
   else love.graphics.setBackgroundColor(love.math.random(0, 1), love.math.random(0, 1), love.math.random(0, 1),  love.math.random(0, 1))
   end
 end
-}
 ```
 
 ## Functions

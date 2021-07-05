@@ -1,6 +1,6 @@
 # Yet another aspect scaling library
 
-Can handle best fit scaling for games, with specific resolution
+Can handle best fit scaling for games with specific resolution
 
 ## Install
 

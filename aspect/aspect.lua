@@ -16,27 +16,22 @@ local a_
 local module =
 {
   setColor = function(r1, g1, b1, a1) r, g, b, a = r1, g1, b1, a1 end,
-  getColor = function() return r, g, b end,
+  getColor = function() return r, g, b, a end,
 
   setGame = function(w, h) gameWidth, gameHeight = w, h end,
   getGame = function() return gameWidth, gameHeight end,
   getGameWidth = function() return gameWidth end,
   getGameHeight = function() return gameHeight end,
-  getGameAspect = function() return gameAspect end,
 
   getOff = function() return xoff, yoff end,
-  getX = function() return xoff end,
-  getY = function() return yoff end,
+  getXOff = function() return xoff end,
+  getYOff = function() return yoff end,
 
   getScale = function() return scale end,
 
   getWindow = function() return windowWidth, windowWidth end,
   getWindowWidth = function() return windowWidth end,
   getWindowHeight = function() return windowHeight end,
-  getWindowAspect = function() return windowAspect end,
-  
-  getBar1 = function() return x1, w1, y1, h1 end,
-  getBar2 = function() return x2, w2, y2, h2 end,
 
   update = function()
     windowWidth, windowHeight = loveWidth(), loveHeight()

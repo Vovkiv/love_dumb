@@ -9,6 +9,7 @@ Can handle best fit scaling for games, with specific resolution
 ## Functions
 
 `setColor(r, g, b, a)` - set colors of "black" bars; `r` - red, `g` - green, `b` - blue, `a` - alpha; default - 0, 0, 0, 1
+
 `getColor()`           - get colors of "black" bars; returns `red`, `green`, `blue`, `alpha`
 
 

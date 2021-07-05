@@ -9,11 +9,8 @@ Can handle best fit scaling for games, with specific resolution
 ## Example
 
 `local aspect = require("aspect")
-
 aspect.setGame(800, 600)
-
 love.window.setMode(800, 600, {resizable = true})
-
 function love.update()
   aspect.update()
 end

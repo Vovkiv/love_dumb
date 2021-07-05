@@ -6,6 +6,32 @@ Can handle best fit scaling for games, with specific resolution
 
 `local aspect = require("aspect")`
 
+## Example
+
+`local aspect = require("aspect")
+
+aspect.setGame(800, 600)
+
+love.window.setMode(800, 600, {resizable = true})
+
+function love.update()
+  aspect.update()
+end
+
+function love.draw()
+  aspect.start()
+    love.graphics.rectangle("fill", 0, 0, 100, 100)
+  aspect.stop()
+end
+
+function love.keypressed(key)
+  if key == "q" then aspect.setBackground()
+  elseif key == "w" then aspect.setBackground(true)
+  elseif key == "e" then aspect.setBackground(false)
+  else love.graphics.setBackgroundColor(love.math.random(0, 1), love.math.random(0, 1), love.math.random(0, 1),  love.math.random(0, 1))
+  end
+end`
+
 ## Functions
 
 `setColor(r, g, b, a)` - set colors of "black" bars; arguments `r` - red - number, `g` - green - number, `b` - blue - number, `a` - alpha - number; default - 0, 0, 0, 1
@@ -47,4 +73,4 @@ Can handle best fit scaling for games, with specific resolution
 
 `start()`                  - start scaling; everything after that will be drawed scaled
 
-`stop()`                   - stop scaling, draw "black" rectangles
+`stop()`                   - stop scaling, draw "black" bars

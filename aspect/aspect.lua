@@ -1,36 +1,52 @@
-local background = false
+-- https://github.com/Vovkiv/love_dumb/blob/main/aspect/aspect.lua
+
+-- default
+local background = false -- if false, black bars will copy colors from love.graphics.getBackgroundColor, true - copy colors from r, g, b, a
 local gameWidth, gameHeight = 800, 600
 local r, g, b, a = 0, 0, 0, 1
 
-local x1, y1, w1, h1, x2, y2, w2, h2
-local windowWidth, windowHeight
-local xoff, yoff
-local gameAspect, windowAspect
+-- love
+local lovePop, lovePush, loveTranslate, loveScale, loveColor, loveRectangle, loveBackground, loveWidth, loveHeight, abs = love.graphics.pop, love.graphics.push, love.graphics.translate, love.graphics.scale, love.graphics.setColor, love.graphics.rectangle, love.graphics.getBackgroundColor, love.graphics.getWidth, love.graphics.getHeight, math.abs
+
+-- local
+local x1, y1, w1, h1, x2, y2, w2, h2 -- black bars positions
+local windowWidth, windowHeight      -- actual window size
+local xoff, yoff                     -- offset of black bars; if black bar width = 10, then xoff = 10, which can be used to correct mouse position
+local gameAspect, windowAspect 
 local scale
-local loveWidth, loveHeight = love.graphics.getWidth, love.graphics.getHeight
-local abs = math.abs
-local a_
-local lovePop, lovePush, loveTranslate, loveScale, loveColor, loveRectangle, loveBackground = love.graphics.pop, love.graphics.push, love.graphics.translate, love.graphics.scale, love.graphics.setColor, love.graphics.rectangle, love.graphics.getBackgroundColor
+local a_                             -- optimization value
 
 local module =
 {
-  setColor = function(r1, g1, b1, a1) r, g, b, a = r1, g1, b1, a1 end,
+  setColor = function(r1, g1, b1, a1) r, g, b, a = r1, g1, b1, a1 end, -- color of black bars
   getColor = function() return r, g, b end,
-  setGame = function(w, h) gameWidth, gameHeight = w, h end,
+
+  setGame = function(w, h) gameWidth, gameHeight = w, h end, -- game width, height, scale
   getGame = function() return gameWidth, gameHeight end,
   getGameWidth = function() return gameWidth end,
   getGameHeight = function() return gameHeight end,
-  getOffset = function() return xoff, yoff end,
-  getXOffset = function() return xoff end,
-  getYOffset = function() return yoff end,
+  getGameAspect = function() return gameAspect end,
+
+  getOff = function() return xoff, yoff end, -- offset of black bars
+  getX = function() return xoff end,
+  getY = function() return yoff end,
+
   getScale = function() return scale end,
-  getWindow = function() return windowWidth, windowWidth end,
+
+  getWindow = function() return windowWidth, windowWidth end, -- window width, height, aspect
   getWindowWidth = function() return windowWidth end,
   getWindowHeight = function() return windowHeight end,
   getWindowAspect = function() return windowAspect end,
-  getGameAspect = function() return gameAspect end,
-  isBackground = function(bool) background = bool end,
+
   getBackground = function() return background end,
+  setBackground = function(back) -- change "background", if value ~= bool, then just switch "background" with not
+    if type(back) == "bool" then
+      background = back
+    else
+      background = not background
+    end
+  end,
+
   update = function()
     windowWidth, windowHeight = loveWidth(), loveHeight()
     gameAspect = gameWidth / gameHeight
@@ -54,6 +70,7 @@ local module =
       xoff, yoff = 0, 0
     end
   end,
+
   start = function ()
     lovePush()
     loveTranslate(xoff, yoff)

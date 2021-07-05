@@ -40,12 +40,15 @@ local module =
 
   getBackground = function() return background end,
   setBackground = function(back) -- change "background", if value ~= bool, then just switch "background" with not
-    if type(back) == "bool" then
+    if type(back) == "boolean" then
       background = back
     else
       background = not background
     end
   end,
+
+  getBar1 = function() return x1, w1, y1, h1 end, -- if horizontal 1st = left, 2nd = right; if vertical 1st = upper, 2nd = bottom
+  getBar2 = function() return x2, w2, y2, h2 end,
 
   update = function()
     windowWidth, windowHeight = loveWidth(), loveHeight()

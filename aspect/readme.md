@@ -14,15 +14,25 @@ Can handle best fit scaling for games, with specific resolution
 
 
 `setGame(w, h)`        - set size of game, which library should scale to; `w` - width, `h` - height
+
 `getGame()`            - get game width and size; returns `width`, `height`
+
 `getGameWidth()`       - get game width; returns `width`
+
 `getGameHeight()`      - get game height; returns `height`
+
 `getGameAspect()`      - get game aspect, which gameWidth/gameHeight; returns `aspect`
 
+
 `getOff()`             - get X and Y offset of black bars; retuns `xoff`, `yoff`
+
 `getX()`               - get X offset of black bars; retuns `xoff`
+
 `getY()`               - get Y offset of black bars; retuns `yoff`
 
+
 `getScale()`           - get scale; returns `scale`
+
 `getWindow()`
+
 ``

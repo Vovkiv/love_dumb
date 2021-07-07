@@ -35,8 +35,6 @@ Can handle best fit scaling for games with specific resolution
 
 `getWindowHeight()`    - get window height; return `height` - number
 #
-`getBar1()`, `getBar2`     - get 1 or 2 bar positions (if horizontal - 1st = left, 2nd = right; if vertical - 1st = upper, 2nd = bottom); return `x` - x of rectangle - number, `w` - width of rectangle - number, `y` - y of rectangle - number, `h` - height of rectangle - number
-#
 `update()`                 - update all data; call it before everything, where you need use values from library
 
 `start()`                  - start scaling; everything after that will be drawed scaled

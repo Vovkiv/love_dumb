@@ -1,10 +1,9 @@
 -- https://github.com/Vovkiv/love_dumb/blob/main/aspect/aspect.lua
 
-local copyBackgroundColor = false
 local gameWidth, gameHeight = 800, 600
 local r, g, b, a = 0, 0, 0, 1
 
-local lovePop, lovePush, loveTranslate, loveScale, loveColor, loveRectangle, loveBackground, loveWidth, loveHeight, abs = love.graphics.pop, love.graphics.push, love.graphics.translate, love.graphics.scale, love.graphics.setColor, love.graphics.rectangle, love.graphics.getBackgroundColor, love.graphics.getWidth, love.graphics.getHeight, math.abs
+local lovePop, lovePush, loveTranslate, loveScale, loveColor, loveRectangle, loveWidth, loveHeight, abs = love.graphics.pop, love.graphics.push, love.graphics.translate, love.graphics.scale, love.graphics.setColor, love.graphics.rectangle, love.graphics.getWidth, love.graphics.getHeight, math.abs
 
 local x1, y1, w1, h1, x2, y2, w2, h2
 local windowWidth, windowHeight

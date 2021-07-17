@@ -1,4 +1,3 @@
---Resize image
 local obj = {x = 100, y = 100, w = 100, h = 100, sw = 1, sh = 1}
 local grab = false
 local rect = love.graphics.newCanvas(obj.w, obj.h)
@@ -9,24 +8,27 @@ love.graphics.setCanvas(rect)
 love.graphics.rectangle("line", 0, 0, obj.w, obj.h)
 love.graphics.setCanvas()
 
-love.update = function()
-  local mx, my = love.mouse.getPosition()
-  if grab and not love.mouse.isDown(1) then
-    grab = false
-    obj.w = math.abs(obj.x - mx)
-    obj.h = math.abs(obj.y - my)
-  end
-  
+love.mousemoved = function(x, y)
   if grab then
-    obj.sw = math.abs(obj.x - mx) / obj.w1
-    obj.sh = math.abs(obj.y - my) / obj.h1
+    obj.sw = math.abs(obj.x - x) / obj.w1
+    obj.sh = math.abs(obj.y - y) / obj.h1
   end
 end
 
-love.mousepressed = function(x, y)
-  if x > obj.x and x < obj.x + obj.w and y > obj.y and y < obj.y + obj.h then
+love.mousereleased = function(x, y, button)
+  if button == 1 then
+  grab = false
+  obj.w = math.abs(obj.x - x)
+  obj.h = math.abs(obj.y - y)
+  end
+end
+
+love.mousepressed = function(x, y, button)
+  if button == 1 then
+    if x > obj.x and x < obj.x + obj.w and y > obj.y and y < obj.y + obj.h then
     grab = true
     end
+  end
 end
 
 love.draw = function()

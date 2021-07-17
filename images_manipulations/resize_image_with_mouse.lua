@@ -3,6 +3,7 @@ local grab = false
 local rect = love.graphics.newCanvas(obj.w, obj.h)
 obj.w1, obj.h1 = obj.w, obj.h -- to calculate scaling from point A to B, we need to store somewhere original width and height of image
 --In this case, i can took values from table with rectangle, but if you need take it from actual image you can use object_with_image:getWidth() and object_with_image:getHeight() (https://www.love2d.org/wiki/Image, https://www.love2d.org/wiki/Texture:getHeight)
+--If, for some reason, image may be changed and this change have different size, you should update this values
 
 love.graphics.setCanvas(rect)
 love.graphics.rectangle("line", 0, 0, obj.w, obj.h)

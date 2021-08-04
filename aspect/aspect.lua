@@ -12,8 +12,7 @@ love.draw = function()
   
   aspect.stop()
 end
-
-]]
+--]]
 
 local aspect =
 {

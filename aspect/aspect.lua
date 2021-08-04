@@ -26,31 +26,30 @@ local aspect =
 
 aspect.scale = 0
 
-aspect.gameWidth = 800 -- size, to which game should be scaled to
-aspect.gameHeight = 600
-
-aspect.windowWidth = 0 -- size of window, which equal to love's love.graphics.getWidth\Height
+aspect.gameWidth    = 800 -- size to which game should be scaled to
+aspect.gameHeight   = 600
+aspect.windowWidth  = 0 -- size of window, which can be used instead of love's love.graphics.getWidth()\Height()
 aspect.windowHeight = 0
 
-aspect.gameAspect = 0
-aspect.windowAspect = 0
+aspect.gameAspect   = 0 -- aspect of game, based on gameWidth / gameHeight; updates on every update()
+aspect.windowAspect = 0 -- aspect of window, based on love.graphics.getWidth() / love.graphics.getHeight(); updates on every update()
 
 aspect.xOff = 0 -- offset of black bars
 aspect.yOff = 0
 
-aspect.x1, aspect.y1, aspect.w1, aspect.h1 = 0, 0, 0, 0 -- data of black bars
-aspect.x2, aspect.y2, aspect.w2, aspect.h2 = 0, 0, 0, 0
+aspect.x1, aspect.y1, aspect.w1, aspect.h1 = 0, 0, 0, 0 -- data of black bars; if bars left-right then: 1 bar is left, 2 is right
+aspect.x2, aspect.y2, aspect.w2, aspect.h2 = 0, 0, 0, 0 --                     if top-bottom then:      1 bar is upper, 2 is bottom
 
-aspect.r, aspect.g, aspect.b, aspect.a = 0, 0, 0, 0 -- colors of black bars
+aspect.r, aspect.g, aspect.b, aspect.a = 0, 0, 0, 0 -- colors of black bars; red, green, blue, alpha
 
-aspect.setColor = function(r, g, b, a)
+aspect.setColor = function(r, g, b, a) -- set color of black bars
   aspect.r = r
   aspect.g = g
   aspect.b = b
   aspect.a = a
 end
 
-aspect.setGame = function(w, h)
+aspect.setGame = function(w, h) -- set size which game should be scaled to
   aspect.gameWidth = w
   aspect.gameHeight = h
 end

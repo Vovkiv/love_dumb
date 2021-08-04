@@ -3,14 +3,12 @@ Should console have mouse support?
 Should console have copy/paste/highlight system?
 Should console have pin to value?(watch window?)
 Case sensevity?
-
 Unpack tables
 ]]
 
 local usePrint = false -- print stuff with "print()"
 local blockKeyboard = true -- prevenet ingame buttons events if it active
 local activateByComma = true -- should console activated by internal "~" implementation
-local
 
 --local profi = require("profi")
 --local console = require("console/console")
@@ -36,6 +34,7 @@ local font = love.graphics.getFont()
 local x = 0
 local startX = 20
 local width = 100
+local rightMost = 0
 
 function love.textinput(text)
   text1 = text1 .. text
@@ -45,14 +44,17 @@ function love.draw()
 love.graphics.setScissor(startX, 0, width + startX, 600)
   
   if font:getWidth(text1) > width + startX then
-    x = (startX - font:getWidth(text1)) + (width + startX)
+    x = startX - font:getWidth(text1) + (width + startX)
+    rightMost = startX + width
   else
     x = startX
+    rightMost = startX + font:getWidth(text1)
   end
   
   love.graphics.print(text1, x, 0)
   love.graphics.setScissor()
-  love.graphics.rectangle("fill", 400, 400, 100, 100)
+  love.graphics.print("|", rightMost, 0)
+--  love.graphics.rectangle("fill", 400, 400, 100, 100)
 end
 
 function love.keypressed(key)

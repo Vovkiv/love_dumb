@@ -2,6 +2,7 @@
 Should console have mouse support?
 Should console have copy/paste/highlight system?
 Should console have pin to value?(watch window?)
+Case sensevity?
 
 Unpack tables
 ]]

@@ -17,11 +17,11 @@ end
 
 local aspect =
 {
-  _VERSION     = "1001",
+  _VERSION     = "1000",
   _URL         = "https://github.com/Vovkiv/love_dumb/tree/main/aspect",
   _DESCRIPTION = "Can handle best fit scaling for games with specific resolution",
   _LICENSE     = "None",
-  _Name        = "Aspect",
+  _NAME        = "Aspect",
 }
 
 aspect.scale = 0

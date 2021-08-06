@@ -1,6 +1,6 @@
 local utf8 = require("utf8")
 
-function utf8.sub(str, x, y)
+utf8.sub = function(str, x, y)
   local x2, y2
   x2 = utf8.offset(str, x)
   if y then
@@ -11,3 +11,5 @@ function utf8.sub(str, x, y)
   end
   return string.sub(str, x2, y2)
 end
+
+return utf8

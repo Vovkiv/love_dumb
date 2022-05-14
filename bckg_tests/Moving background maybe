@@ -1,0 +1,50 @@
+local yOffset = 0
+local xOffset = 0
+local xDirection = -1
+local yDirection = -1
+local width, height = 32, 32
+love.window.setMode(800, 600, {resizable = true})
+
+love.draw = function()
+  local windowWidth = love.graphics.getWidth()
+  local windowHeight = love.graphics.getHeight()
+  local xStart, xEnd, yStart, yEnd
+  
+  if xDirection > 0 then
+    xStart = -1
+    xEnd = 0
+  elseif xDirection < 0 then
+    xStart = 0
+    xEnd = 1
+  else
+    xStart = 0
+    xEnd = 0
+  end
+
+  if yDirection > 0 then
+    yStart = -1
+    yEnd = 0
+  elseif xDirection < 0 then
+    yStart = 0
+    yEnd = 1
+  else
+    yStart = 0
+    yEnd = 0
+  end
+
+  xOffset = xOffset + xDirection
+  yOffset = yOffset + yDirection
+
+  if yOffset < -height or yOffset > height then
+    yOffset = 0
+  end
+  if xOffset < -width or xOffset > width then
+    xOffset = 0
+  end
+  love.graphics.translate(xOffset, yOffset)
+  for x = 0 + xStart, windowWidth / width + xEnd do
+    for y = 0 + yStart, windowHeight / height + yEnd do
+      love.graphics.rectangle("line", x * width, y * height, width, height)
+    end
+  end
+end
